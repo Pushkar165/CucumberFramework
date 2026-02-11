@@ -2,6 +2,8 @@ package StepDefinition;
 
 import java.io.File;
 import java.io.IOException;
+import java.time.Duration;
+
 
 import org.apache.commons.io.FileUtils;
 import org.junit.Assert;
@@ -81,7 +83,8 @@ public class StepDef extends BaseClass{
 		
 	WebDriverManager.chromedriver().setup();
 	driver = new ChromeDriver();
-	
+	driver.manage().window().maximize();
+	driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(100000));
 	loginpg = new LoginPage(driver);
 	Homepg = new HomePage(driver);
 	   
@@ -90,12 +93,14 @@ public class StepDef extends BaseClass{
 	@When("User opens URL {string}")
 	public void user_opens_url(String url) {
 	   driver.get(url);
+	   //driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(100000)); 
 	}
 
 	@When("User enter valid userID as {string} and password as {string}")
 	public void user_enter_valid_user_id_as_and_password_as(String email, String password) {
 		 loginpg.EnterEmail(email);
 		 loginpg.Enterpassword(password);
+		// driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(100000));
 	}
 	
 		
@@ -104,7 +109,7 @@ public class StepDef extends BaseClass{
 	@When("User clicks on login button.")
 	public void user_clicks_on_login_button() {
 	   loginpg.ClickOnLoginButton();
-	
+	   //driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(100000));
 	}
 
 	@Then("Page title should be {string}")
@@ -118,20 +123,48 @@ public class StepDef extends BaseClass{
 		{
 			Assert.assertTrue(false);
 		}
-	
+		//driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(100000));
 	}
 	
 	
-	@When("User clicks on three horizontal bar.")
+	@When("User clicks on three horizontal bar")
 	public void user_clicks_on_three_horizontal_bar() {
 	   Homepg.ClickOnBurgerMenuBtn(); 
+	   //driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(100000));
 	}
 
-	@When("User clicks on about.")
+	@When("User clicks on about")
 	public void user_clicks_on_about() {
 	    Homepg.ClickOnAboutSideBarLink();
+	    //driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(100000));
 	}
 	
+
+
+	@When("User clicks on products")
+	public void user_clicks_on_products() {
+		Homepg.ClickOnProducts();
+	}
+
+
+
+
+	
+
+	@When("User clicks on platform for test")
+	public void user_clicks_on_platform_for_test() {
+		Homepg.ClickOnPlatformForTest();
+	}
+	@When("User clicks on request a demo")
+	public void user_clicks_on_request_a_demo() {
+		Homepg.ClickOnRequestADemo();
+	}
+
+
+
+
+
+
 	
 	
 	@After

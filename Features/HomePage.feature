@@ -25,5 +25,11 @@ Feature: User login to google
     And User enter valid userID as "standard_user" and password as "secret_sauce"
     And User clicks on login button.
     And Page title should be "Swag Labs"
+    And User clicks on three horizontal bar
+    And User clicks on about
+   	And User clicks on products
+    And User clicks on platform for test
+    And User clicks on request a demo
+    
    
  

@@ -16,15 +16,20 @@ public class HomePage {
 		PageFactory.initElements(driverr, this);
 	}
 	
-    @FindBy(id="react-burger-menu-btn")
+    @FindBy(xpath="//*[@id=\"react-burger-menu-btn\"]")
     WebElement BurgerMenuBtn;
     
-    @FindBy(id= "about_sidebar_link")
+    @FindBy(xpath= "//*[@id=\"about_sidebar_link\"]")
     WebElement AboutSideBarLink;
     
-
+    @FindBy(xpath="//*[@id=\"__next\"]/header/div/div/div[1]/div[2]/div[1]/div[1]/div[1]/span")
+    WebElement Products;
     
+    @FindBy(xpath="//*[@id=\"__next\"]/header/div/div/div[1]/div[2]/div[1]/div[1]/div[1]")
+    WebElement PlatformForTest;
     
+    @FindBy(xpath="//*[@id=\"__next\"]/header/div/div/div[2]/div[2]/a/button")
+    WebElement RequestADemo;
     
     
 
@@ -41,6 +46,33 @@ public class HomePage {
     
    
     }
+    
+    
+    public void ClickOnProducts()
+    {
+    	Products.click();
+    }
+    
+    public void ClickOnPlatformForTest()
+    {
+    	PlatformForTest.click();
+    
+   
+    }
+   
+    
+    public void ClickOnRequestADemo()
+    {
+    	RequestADemo.click();
+    }
+    
+   
+
+	
+
+
+    
+   
 }
   
     
